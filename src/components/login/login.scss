@@ -1,0 +1,23 @@
+.login{
+  display:grid;
+  place-items: center;
+  height: 100vh;
+  background: #000;
+  &__image{
+    width: 100%;
+    max-width: 500px;
+  }
+  &__auth{
+    padding: 20px;
+    border-radius: 99px;
+    background-color: #1db954;
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover{
+      background-color:  #45dd7b;
+      transition: 200ms background-color ease-in-out;
+    }
+  }
+}
