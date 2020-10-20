@@ -3,4 +3,5 @@ const initialState= {
 }
 
 export function rootReducer(action,state = initialState){
+  return state
 }
