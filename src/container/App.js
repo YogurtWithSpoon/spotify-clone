@@ -1,26 +1,53 @@
 import React, { useEffect } from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import Login from "../components/login/login";
+import Player from "../components/player/player"
 
-export const App = () => {
-  useEffect(() => {}, []);
+import { getTokenFromUrl } from "../api/spotify";
+import { getTokenAction,setInfoAction } from "./appAction";
+
+import SpotifyWebApi from 'spotify-web-api-js'
+
+const spotify = new SpotifyWebApi();
+
+export const App = ({app,getToken,setInfo}) => {
+  useEffect(() => {
+    const hash = getTokenFromUrl();
+    window.location.hash = "";
+    const _token = hash.access_token;
+    if (_token) {
+      getToken(_token);
+      spotify.setAccessToken(_token)
+      spotify.getMe().then(user => {
+        console.log(user)
+        setInfo(user)
+      })
+    }
+  });
+
   return (
     <div>
-      <Login />
+      {app.token ? (
+        <Player />
+      ) : (
+        <Login />
+      )}
     </div>
   );
 };
 
-App.propTypes = {
-  prop: PropTypes,
-};
+const mapStateToProps = (state) => {
+  console.log(state)
+  return {
+    app: state.app,
+    player: state.player,
+  }
+}
 
-const mapStateToProps = (state) => ({
-  state,
+const mapDispatchToProps = (dispatch) => ({
+  getToken: (token) => dispatch(getTokenAction(token)),
+  setInfo: (info) => dispatch(setInfoAction(info))
 });
-
-const mapDispatchToProps = (dispatch) => {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
