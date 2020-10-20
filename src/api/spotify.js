@@ -11,10 +11,11 @@ const scopes = [
   "user-top-read",
   "user-modify-playback-state",
 ]
+//token example 
 //http://localhost:3000/#access_token=BQCq2HuuMVi6qSFS0U0nCWevN3K6SDhBTwPuFj1IFL1sTMC_AbdhovN4C1opUxzS43UTg2vUkV5s3-FA5YsLZUF9gGcDG-dGcl23-8jITIL_BdHaKSK3cyNG2H41d121adqyVjBwJWLvkjeS5l3qNpO90YNqfjHcMcM7oyUuDvowMWwW_qJe&token_type=Bearer&expires_in=3600
 
-export function getToken(){
-  window.location.hash
+export function getTokenFromUrl(){
+  return window.location.hash
     .substring(1)
     .split('&')
     .reduce((initial,item) => {
