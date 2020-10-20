@@ -1,7 +1,8 @@
-const initialState= {
-  token: ''
-}
+import { combineReducers } from "redux";
+import { appReducer } from "../container/appReducer";
+import { playerReducer } from "../components/player/playerReducer";
 
-export function rootReducer(action,state = initialState){
-  return state
-}
+export const rootReducer = combineReducers({
+  app: appReducer,
+  player: playerReducer,
+});
