@@ -1,8 +1,102 @@
 .footer{
   position: fixed;
+  display:flex;
+  justify-content: space-between;
   bottom: 0;
   width: 100%;
-  height: 65px;
+  height: 45px;
   background: #282828;
-  padding: 10px;
+  padding: 20px;
+  &__songinfo{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 14px;
+    height: 100%;
+    >a{
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    &__artist{
+      color: #b3b3b3;
+    }
+    &__song{
+      color:rgb(241, 241, 241);
+    }
+  }
+  &__left{
+    display:flex;
+    align-items: center;
+    flex: 0.3;
+  }
+  &__center{
+    flex: 0.4;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__right{
+    flex: 0.3;
+  }
+  &__albumcover{
+    object-fit: contain;
+    width: 55px;
+    height: 55px;
+    padding-right: 10px;
+  }
+}
+.buttons__controls{
+  color: #b3b3b3;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  width: 200px;
+  &__button{
+    &:hover{
+      transform: scale(1.3);
+    }
+  }
+}
+
+.timebar{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__bar{
+    height: 4px;
+    width: 80%;
+    background: #404040;
+  }
+  &:hover{
+    .MuiSlider-thumb{
+      display: block;
+      color: #fff;
+    }
+    .MuiSlider-track{
+      color: #1db954;
+    }
+  }
+  >p{
+    color: #b3b3b3;
+    font-size: 12px;
+  }
+  .MuiSlider-rail{
+    height: 4px;
+    border-radius: 10px;
+    color: #404040;
+  }
+  .MuiSlider-track{
+    height: 4px;
+    color: #b3b3b3;
+  }
+  .MuiSlider-thumb{
+    display: none;
+    &:focus, &:hover, &:active{
+      box-shadow: none;
+    }
+  }
 }
