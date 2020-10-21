@@ -5,13 +5,13 @@ import Login from "../components/login/login";
 import Player from "../components/player/player"
 
 import { getTokenFromUrl } from "../api/spotify";
-import { getTokenAction,setInfoAction } from "./appAction";
+import { getTokenAction,setInfoAction,setPlaylistAction } from "./appAction";
 
 import SpotifyWebApi from 'spotify-web-api-js'
 
 const spotify = new SpotifyWebApi();
 
-export const App = ({app,getToken,setInfo}) => {
+export const App = ({app,getToken,setInfo,setPlayLists}) => {
   useEffect(() => {
     const hash = getTokenFromUrl();
     window.location.hash = "";
@@ -22,6 +22,9 @@ export const App = ({app,getToken,setInfo}) => {
       spotify.getMe().then(user => {
         console.log(user)
         setInfo(user)
+      })
+      spotify.getUserPlaylists().then(playlists => {
+        setPlayLists(playlists)
       })
     }
   });
@@ -46,7 +49,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   getToken: (token) => dispatch(getTokenAction(token)),
-  setInfo: (info) => dispatch(setInfoAction(info))
+  setInfo: (info) => dispatch(setInfoAction(info)),
+  setPlayLists: (playlists) => dispatch(setPlaylistAction(playlists))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

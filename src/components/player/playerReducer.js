@@ -1,8 +1,8 @@
-import { SET_INFO } from "../../container/appAction"
+import { SET_INFO,SET_PLAYLISTS } from "../../container/appAction"
 
 const initialState= {
   user: null,
-  playlist: [],
+  playlists: [],
   playing: false,
   item: null,
   img: '',
@@ -17,6 +17,11 @@ export function  playerReducer(state = initialState,action){
         user: action.payload.display_name,
         img: action.payload.images[0].url,
         id: action.payload.id
+      }
+    case SET_PLAYLISTS:
+      return {
+        ...state,
+        playlists: action.payload.items
       }
     default:
       return state
