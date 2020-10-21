@@ -41,7 +41,6 @@ const mapStateToProps = (state) => {
   console.log(state)
   return {
     app: state.app,
-    player: state.player,
   }
 }
 
