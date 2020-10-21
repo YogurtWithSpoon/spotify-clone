@@ -1,0 +1,19 @@
+.sidebarOption{
+  display: flex;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 200ms color ease-in;
+  margin: 15px 0;
+  &__icon{
+    padding-right: 10px;
+  }
+  &:hover{
+    color:rgb(240, 240, 240);
+  }
+  &__menuitem{
+    height: 40px;
+  }
+  &__category{
+    font-weight: 600;
+  }
+}
