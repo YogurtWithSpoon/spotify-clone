@@ -1,10 +1,10 @@
 import React from 'react'
 import './body.scss'
-
-function body() {
+import Header from '../header/header'
+function body({name}) {
   return (
     <div className="body">
-      <h1>Body</h1>
+      <Header name={name}/>
     </div>
   )
 }
