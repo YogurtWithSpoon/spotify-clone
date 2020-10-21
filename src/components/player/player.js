@@ -5,12 +5,12 @@ import SideBar from '../sidebar/sidebar'
 import Body from '../body/body'
 import Footer from '../footer/footer'
 
-export const player = () => {
+export const player = ({player}) => {
   return (
     <div className="player">
     <div className="player__body">
-      <SideBar />
-      <Body /> 
+      <SideBar playlists={player.playlists}/>
+      <Body/> 
     </div>
     <Footer />
     </div>
@@ -18,7 +18,7 @@ export const player = () => {
 }
 
 const mapStateToProps = (state) => ({
-  
+  player: state.player
 })
 
 // const mapDispatchToProps = {
