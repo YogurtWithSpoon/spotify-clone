@@ -40,6 +40,46 @@
   }
   &__right{
     flex: 0.3;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    & > * {
+      margin: 0 5px;
+    }
+    &__bar{
+      height: 4px;
+      width: 80%;
+      background: #404040;
+    }
+    &:hover{
+      .MuiSlider-thumb{
+        display: block;
+        color: #fff;
+      }
+      .MuiSlider-track{
+        color: #1db954;
+      }
+    }
+    >p{
+      color: #b3b3b3;
+      font-size: 12px;
+    }
+    .MuiSlider-rail{
+      height: 4px;
+      border-radius: 10px;
+      color: #404040;
+    }
+    .MuiSlider-track{
+      height: 4px;
+      color: #b3b3b3;
+    }
+    .MuiSlider-thumb{
+      display: none;
+      &:focus, &:hover, &:active{
+        box-shadow: none;
+      }
+    }
   }
   &__albumcover{
     object-fit: contain;

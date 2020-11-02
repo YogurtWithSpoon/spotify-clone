@@ -5,12 +5,16 @@ import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import RepeatIcon from "@material-ui/icons/Repeat";
+import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
+import VolumeDownIcon from '@material-ui/icons/VolumeDown';
 import { Slider } from "@material-ui/core";
 
 
 function footer() {
   let min = 0;
   let max = 150;
+  let volumeValue = 50;
+
   return (
     <div className="footer">
       <div className="footer__left">
@@ -47,12 +51,16 @@ function footer() {
             max={max}
             defaultValue={0}
             step={1}
-            style={{ width: "90%" }}
+            style={{ width: "90%",margin: "0 5px" }}
           />
           <p className="timebar__end">{max}</p>
         </div>
       </div>
-      <div className="footer__right"></div>
+      <div className="footer__right">
+        <PlaylistPlayIcon />
+        <VolumeDownIcon onClick={() => volumeValue = 0}/>
+        <Slider min={0} max={100} value={volumeValue} step={1} style={{ width: "40%"}}/>
+      </div>
     </div>
   );
 }
