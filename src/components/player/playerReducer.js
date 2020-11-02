@@ -1,4 +1,4 @@
-import { SET_INFO,SET_PLAYLISTS } from "../../container/appAction"
+import { SET_INFO,SET_PLAYLISTS,SET_PLAYLIST_WEEKLY } from "../../container/appAction"
 
 const initialState= {
   user: null,
@@ -7,6 +7,7 @@ const initialState= {
   item: null,
   img: '',
   id: '',
+  playlistWeekly: [],
 }
 
 export function  playerReducer(state = initialState,action){
@@ -22,6 +23,11 @@ export function  playerReducer(state = initialState,action){
       return {
         ...state,
         playlists: action.payload.items
+      }
+    case SET_PLAYLIST_WEEKLY:
+      return {
+        ...state,
+        playlistWeekly: action.payload
       }
     default:
       return state
