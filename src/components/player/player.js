@@ -10,7 +10,7 @@ export const player = ({player}) => {
     <div className="player">
     <div className="player__body">
       <SideBar playlists={player.playlists}/>
-      <Body/> 
+      <Body playlist={player?.playlistWeekly}/> 
     </div>
     <Footer />
     </div>
@@ -21,9 +21,5 @@ const mapStateToProps = (state) => ({
   player: state.player
 })
 
-// const mapDispatchToProps = {
-
-// }
-// return in connect
 
 export default connect(mapStateToProps)(player)
